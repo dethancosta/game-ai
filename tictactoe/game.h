@@ -1,13 +1,18 @@
 #include <stdbool.h>
 #include "board.h"
 
-bool gameOver(board);
+typedef struct {
+	board *b;
+	bool xTurn;
+} game;
 
-bool xWins(board);
+bool gameOver(game);
 
-bool oWins(board);
+bool xWins(board*);
 
-bool isDraw(board);
+bool oWins(board*);
+
+bool isDraw(board*);
 
 // Attempt to make specified move. If valid, return loc, otherwise -1
-int makeMove(bool xPlayer, int loc, board b);
+int makeMove(int loc, game *g);
